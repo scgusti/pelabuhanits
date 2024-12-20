@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Plat Nomor</title>
+    <link rel="stylesheet" href="/style/styles.css">
+</head>
+<body>
+    <h1>Masukkan Plat Nomor</h1>
+    <form action="/add-plate" method="post">
+        <label for="numberplate">Plat Nomor:</label>
+        <input type="text" id="numberplate" name="numberplate" required>
+        <button type="submit">Kirim</button>
+    </form>
+    <p><p>
+    <th><a href="/view-plates">Lihat Data Plat Nomor</a></th>
+    
+</body>
+</html>
+<!-- menambahkan pembacaan database table platnomor langsung dalam bentuk tabel
+
+    <h2>Daftar Plat Nomor</h2>
+    -->
+    <!--
+    <table id="platesTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Plat Nomor</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    -->
+    <!--
+    <script>
+        // Fungsi untuk mengambil data plat nomor dan menampilkannya di tabel
+        async function loadPlates() {
+            try {
+                const response = await fetch('/get-plates'); // Memanggil endpoint untuk mendapatkan data plat nomor
+                const plates = await response.json(); // Mengonversi response ke JSON
+
+                const tableBody = document.querySelector('#platesTable tbody');
+                tableBody.innerHTML = ''; // Menghapus isi tabel sebelum menambahkan data baru
+
+                // Menambahkan setiap data plat nomor ke dalam tabel
+                plates.forEach(plate => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${plate.id}</td>
+                        <td>${plate.numberplate}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error saat memuat data plat nomor:', error);
+            }
+        }
+
+        // Memuat data plat nomor saat halaman dimuat
+        window.onload = loadPlates;
+    </script>
+    -->

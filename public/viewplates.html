@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Plat Nomor</title>
+    <link rel="stylesheet" href="/style/styles.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Daftar Plat Nomor</h1>
+
+        <!-- Tabel untuk menampilkan data -->
+        <table id="platesTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Plat Nomor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data plat nomor akan dimuat di sini -->
+            </tbody>
+        </table>
+        <p></p>
+        <th><a href="/input-plate">tambah plat</a></th>
+    </div>
+
+    <script>
+        // Fungsi untuk memuat data plat nomor
+        async function loadPlates() {
+            try {
+                const response = await fetch('http://localhost:3000/get-plates');
+                const plates = await response.json();
+
+                const tableBody = document.querySelector('#platesTable tbody');
+                tableBody.innerHTML = ''; // Kosongkan isi tabel sebelum menambahkan data baru
+
+                // Menambahkan data plat nomor ke dalam tabel
+                plates.forEach(plate => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${plate.id}</td>
+                        <td>${plate.numberplate}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error saat mengambil data plat nomor:', error);
+            }
+        }
+
+        // Memanggil fungsi loadPlates saat halaman dimuat
+        window.onload = loadPlates;
+    </script>
+</body>
+</html>
