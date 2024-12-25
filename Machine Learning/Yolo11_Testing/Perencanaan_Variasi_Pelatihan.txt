@@ -2,8 +2,23 @@ Model : Yolo11n.pt
 Data : 
 curl -L "https://universe.roboflow.com/ds/fULmJo8flj?key=IlUNZYS6li" > roboflow.zip; unzip roboflow.zip; rm roboflow.zip
 
-*Perencanaan Pelatihan
+*Perencanaan Pelatihan (epoch/batch/pixel)
+** Skema 1
+- 50/32/640
+- 100/32/640
+- 150/32/640
 
+** Skema 2
+- 50/64/640
+- 100/64/640
+- 150/64/640
+
+** Skema 3
+- 15/8/1280
+- 10/16/1280
+- 5/32/1280
+
+*Hasil Pelatihan
 ** Skema 1
 |--------------------------------------------------------------------|
 |  epoch  |  batch  |  Resolution  |    R    |   mAP50  |  mAP50-95  |
